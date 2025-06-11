@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="119efc1c-a77a-40be-b625-6fe89c44c1a5" name="Changes" comment="Update." />
+    <list default="true" id="119efc1c-a77a-40be-b625-6fe89c44c1a5" name="Changes" comment="Update.">
+      <change beforePath="$PROJECT_DIR$/lib/features/profile/presentation/DeleteAccount.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/profile/presentation/DeleteAccount.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
