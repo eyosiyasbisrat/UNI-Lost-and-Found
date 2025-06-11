@@ -131,3 +131,24 @@ class AuthApi {
     }
   }
 
+  Exception _handleError(DioException error) {
+    if (error.response?.statusCode == 401) {
+      return Exception('Invalid credentials');
+    }
+    if (error.response?.statusCode == 400) {
+      final message = error.response?.data['message'] as String?;
+      return Exception(message ?? 'Invalid request');
+    }
+    if (error.response?.statusCode == 404) {
+      return Exception('User not found');
+    }
+    if (error.type == DioExceptionType.connectionTimeout ||
+        error.type == DioExceptionType.receiveTimeout) {
+      return Exception('Connection timeout. Please check your internet connection.');
+    }
+    if (error.type == DioExceptionType.unknown) {
+      return Exception('No internet connection');
+    }
+    return Exception('An error occurred. Please try again.');
+  }
+}
