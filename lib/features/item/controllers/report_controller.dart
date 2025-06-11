@@ -105,4 +105,21 @@ class ReportState {
     this.error,
   });
 
-  
+  ReportState copyWith({
+    bool? isFound,
+    TextEditingController? itemNameController,
+    TextEditingController? locationController,
+    TextEditingController? descriptionController,
+    DateTime? foundDate,
+    String? error,
+  }) {
+    return ReportState(
+      isFound: isFound ?? this.isFound,
+      itemNameController: itemNameController ?? this.itemNameController,
+      locationController: locationController ?? this.locationController,
+      descriptionController: descriptionController ?? this.descriptionController,
+      foundDate: foundDate ?? this.foundDate,
+      error: error, // Allow null for clearing error
+    );
+  }
+}
