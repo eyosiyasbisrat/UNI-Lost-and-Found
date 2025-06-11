@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'core/di/service_locator.dart';
 import 'core/router/app_router.dart';
+import 'features/item/presentation/providers/item_provider.dart';
+import 'features/item/domain/repositories/item_repository.dart';
+import 'features/item/data/repositories/item_repository_impl.dart';
+import 'features/item/data/api/item_api.dart';
 
 void main() async {
   try {
@@ -26,20 +31,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'UNI Lost & Found',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ItemProvider(
+            ItemRepositoryImpl(
+              ItemApi(baseUrl: 'http://localhost:3000/api'),
+            ),
+          ),
+        ),
+      ],
+      child: MaterialApp.router(
+        title: 'UNI Lost & Found',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        routerConfig: router,
+        builder: (context, child) {
+          return MediaQuery(
+            data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: child!,
+          );
+        },
       ),
-      routerConfig: appRouter,
-      builder: (context, child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: child!,
-        );
-      },
     );
   }
 }
