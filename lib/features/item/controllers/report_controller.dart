@@ -87,3 +87,39 @@ class ReportController extends StateNotifier<ReportState> {
     }
   }
 }
+
+class ReportState {
+  final bool isFound;
+  final TextEditingController itemNameController;
+  final TextEditingController locationController;
+  final TextEditingController descriptionController;
+  final DateTime foundDate;
+  final String? error;
+
+  ReportState({
+    required this.isFound,
+    required this.itemNameController,
+    required this.locationController,
+    required this.descriptionController,
+    required this.foundDate,
+    this.error,
+  });
+
+  ReportState copyWith({
+    bool? isFound,
+    TextEditingController? itemNameController,
+    TextEditingController? locationController,
+    TextEditingController? descriptionController,
+    DateTime? foundDate,
+    String? error,
+  }) {
+    return ReportState(
+      isFound: isFound ?? this.isFound,
+      itemNameController: itemNameController ?? this.itemNameController,
+      locationController: locationController ?? this.locationController,
+      descriptionController: descriptionController ?? this.descriptionController,
+      foundDate: foundDate ?? this.foundDate,
+      error: error, // Allow null for clearing error
+    );
+  }
+}
