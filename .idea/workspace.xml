@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="119efc1c-a77a-40be-b625-6fe89c44c1a5" name="Changes" comment="Update.">
-      <change beforePath="$PROJECT_DIR$/lib/features/item/presentation/ReportItem.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/features/item/presentation/ReportItem.dart" afterDir="false" />
-    </list>
+    <list default="true" id="119efc1c-a77a-40be-b625-6fe89c44c1a5" name="Changes" comment="Update." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +17,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
