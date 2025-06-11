@@ -149,3 +149,6 @@ class AuthApi {
     if (error.type == DioExceptionType.unknown) {
       return Exception('No internet connection');
     }
+    return Exception('An error occurred. Please try again.');
+  }
+}
