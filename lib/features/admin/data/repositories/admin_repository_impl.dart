@@ -61,3 +61,13 @@ class AdminRepositoryImpl implements AdminRepository {
       throw Exception('Failed to unban user: $e');
     }
   }
+
+  @override
+  Future<List<Map<String, dynamic>>> getSystemLogs() async {
+    try {
+      return await _api.getSystemLogs();
+    } catch (e) {
+      throw Exception('Failed to fetch system logs: $e');
+    }
+  }
+}
