@@ -73,3 +73,23 @@ class AdminApi {
     }
   }
 
+  Exception _handleError(DioException error) {
+    if (error.response?.statusCode == 401) {
+      return Exception('Unauthorized access');
+    }
+    if (error.response?.statusCode == 403) {
+      return Exception('Access forbidden');
+    }
+    if (error.response?.statusCode == 404) {
+      return Exception('Resource not found');
+    }
+    if (error.type == DioExceptionType.connectionTimeout ||
+        error.type == DioExceptionType.receiveTimeout) {
+      return Exception('Connection timeout. Please check your internet connection.');
+    }
+    if (error.type == DioExceptionType.unknown) {
+      return Exception('No internet connection');
+    }
+    return Exception('An error occurred. Please try again.');
+  }
+}
